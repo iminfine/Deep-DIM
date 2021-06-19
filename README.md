@@ -12,7 +12,7 @@ This is the official repo for the paper [Robust Template Matching via Hierarchic
 # Motivation
 The idea is straightforward which is to investigate if enhancing the CNN's encoding of shape information can produce more distinguishable features that improve the performance of template matching. This investigation results in a new template matching method that produces state-of-the-art results on a standard benchmark. To confirm these results we also create a new benchmark and show that the proposed method also outperforms existing techniques on this new dataset. 
 # Results 
-<img src="https://github.com/iminfine/Deep-DIM/tree/master/figure/results.PNG" width="450"/> 
+<img src="https://raw.githubusercontent.com/iminfine/Deep-DIM/master/figure/results.PNG" width="450"/> 
 
 # Dependencies
 - Dependencies in our experiment, not necessary to be exactly same version but later version is preferred
