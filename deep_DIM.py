@@ -2,17 +2,13 @@ from __future__ import print_function, division
 import argparse
 import numpy as np
 import cv2
-import os, sys
+import os
 import progressbar
 from utils import all_sample_iou, plot_success_curve
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
-import torchvision
-from torchvision import models, transforms, utils
+from torchvision import models, transforms
 import copy
-import time
-import scipy.io as sio
 import matplotlib
 import matplotlib.pyplot as plt
 from DIM import *
@@ -91,7 +87,7 @@ def featureNormalize(X):
     n = X.shape[1]
     
     sigma = np.zeros((1,n))
-    mu = np.zeros((1,n));
+    mu = np.zeros((1,n))
     mu = np.mean(X,axis=0)  
     sigma = np.std(X,axis=0)
     for i in range(n):
