@@ -10,7 +10,7 @@ This is the official repo for the paper [Robust Template Matching via Hierarchic
 }
 ```
 # Motivation
-The idea is straightforward which is to investigate if enhancing the CNN's encoding of shape information can produce more distinguishable features that improve the performance of template matching. This investigation results in a new template matching method that produces state-of-the-art results on a standard benchmark. To confirm these results we also create a new benchmark and show that the proposed method also outperforms existing techniques on this new dataset. 
+The idea is straightforward which is to investigate if enhancing the CNN's encoding of shape information can produce more distinguishable features that improve the performance of template matching. 
 # Results 
 <img src="https://raw.githubusercontent.com/iminfine/Deep-DIM/master/figure/results.PNG" width="450"/> 
 
@@ -22,11 +22,16 @@ The idea is straightforward which is to investigate if enhancing the CNN's encod
 Download the pretrained model from [here](https://drive.google.com/file/d/1bx2oDhnD9gUA5jhzgGXRmynhh4XPyBGV/view?usp=sharing) and put it into ./model 
 
 The results of using features from all combinations of three layers can be downloaded from [here](https://drive.google.com/file/d/1b4O1At_q7Q-Ib6drlLFEcv5iSY4O4uBx/view?usp=sharing).
-## Run on BBS dataset using features form the best combination.
+## Run DIM on BBS dataset using features form the best combination.
 ```bash
 python deep_DIM.py --Dataset BBS --Mode Best 
 ```
-## Run on BBS dataset using features from all possible combinations of three layers.
+## Run DIM on BBS dataset using features from all possible combinations of three layers.
 ```bash
 python deep_DIM.py --Dataset BBS --Mode All 
 ```
+
+# What is DIM?
+DIM is a recent state-of-the-art template matching method using the mechanism explaining away. An illustration of explaining away can be found below. Red rectangle area in the left image (template image) is the template for matching, and four same size green rectangle areas are the additional templates. These templates compete with each other to be matched to the search image (Right). To be specific, only one template is supported to be the best matching one at every location whereas the similarities of others are suppressed or explained away. The corresponding matching results are shown in the right. The details of DIM can be found [here](https://nms.kcl.ac.uk/michael.spratling/Doc/dim_patchmatching.pdf).
+
+<img src="https://raw.githubusercontent.com/iminfine/Deep-DIM/master/figure/DIM.png" width="450"/> 
