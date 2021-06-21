@@ -60,13 +60,21 @@ def extract_additionaltemplates(image,template,numadditionaltemplates,keypoints)
     return addtemplates
 
 def preprocess(image):
+    '''The preprocess described in original DIM paper'''
     cuda=torch.cuda.current_device()
     n, c, h, w = image.size()
     X=torch.zeros(n,2*c,h,w,device=cuda)
     for i in range(len(image)):
         for j in range(len(image[i])):
             X[i][2*(j-1)+2]=torch.clamp(image[i][j],min=0)
-            X[i][2*(j-1)+3]=torch.clamp(image[i][j],max=0).abs()        
+            X[i][2*(j-1)+3]=torch.clamp(image[i][j],max=0).abs()    
+    '''    
+    Alternatively, you can use the fellowing code which run faster  
+    imageon=torch.clamp(image,min=0)
+    imageoff=torch.clamp(image,max=0).abs()  
+    out=torch.cat((imageon,imageoff),1)
+    return out
+    '''
     return X
 
 def conv2_same(Input, weight,num=1):
