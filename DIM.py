@@ -51,7 +51,7 @@ def extract_additionaltemplates(image,template,numadditionaltemplates,keypoints)
         else:
             keypointCandidatesAccepted.append(keypointsCandidates[i,:])
             keypoints = np.vstack((keypoints,keypointsCandidates[i,:]))
-            numAccepted+=1;
+            numAccepted+=1
             addtemplate,box=imcrop_odd(image,(int(keypointsCandidates[i,1]-(w-1)/2),
                               int(keypointsCandidates[i,0]-(h-1)/2),w,h))
             addtemplates.append(addtemplate)
